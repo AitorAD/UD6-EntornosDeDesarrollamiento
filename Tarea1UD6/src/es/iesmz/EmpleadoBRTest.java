@@ -68,7 +68,7 @@ class EmpleadoBRTest {
     }
 
     @Test
-    public void calculaSalarioNetoEntradaMenos1SalidaMemos1() {
+    public void calculaSalarioNetoEntradaMenos1SalidaMenos1() {
         EmpleadoBR e = new EmpleadoBR();
         e.calculaSalarioNeto(-1f);
 
@@ -76,10 +76,50 @@ class EmpleadoBRTest {
     }
 
     @Test
-    public void calculaSalarioBrutoEntradaVendedor20008hSalidaMemos1360() {
+    public void calculaSalarioBrutoEntradaVendedor20008hSalida1360() {
         EmpleadoBR e = new EmpleadoBR();
         e.calculaSalarioBruto(TipoEmpleado.venedor, 2000,8);
 
         assertEquals(1360, e.calculaSalarioBruto(TipoEmpleado.venedor, 2000,8));
+    }
+
+    @Test
+    public void calculaSalarioBrutoEntradaVendedor15003hSalida1260() {
+        EmpleadoBR e = new EmpleadoBR();
+        e.calculaSalarioBruto(TipoEmpleado.venedor, 1500,3);
+
+        assertEquals(1260, e.calculaSalarioBruto(TipoEmpleado.venedor, 1500,3));
+    }
+
+    @Test
+    public void calculaSalarioBrutoEntradaVendedor1499Coma990hSalida1100() {
+        EmpleadoBR e = new EmpleadoBR();
+        e.calculaSalarioBruto(TipoEmpleado.venedor, 1499.99f,0);
+
+        assertEquals(1100, e.calculaSalarioBruto(TipoEmpleado.venedor, 1499.99f,0));
+    }
+
+    @Test
+    public void calculaSalarioBrutoEntradaEcarregat12508hSalida1760() {
+        EmpleadoBR e = new EmpleadoBR();
+        e.calculaSalarioBruto(TipoEmpleado.encarregat, 1250f,8);
+
+        assertEquals(1760, e.calculaSalarioBruto(TipoEmpleado.encarregat, 1250f,8));
+    }
+
+    @Test
+    public void calculaSalarioBrutoEntradaEcarregat10000hSalida1600() {
+        EmpleadoBR e = new EmpleadoBR();
+        e.calculaSalarioBruto(TipoEmpleado.encarregat, 1000f,0);
+
+        assertEquals(1600, e.calculaSalarioBruto(TipoEmpleado.encarregat, 1000f,0));
+    }
+
+    @Test
+    public void calculaSalarioBrutoEntradaEcarregat999Coma993hSalida1560() {
+        EmpleadoBR e = new EmpleadoBR();
+        e.calculaSalarioBruto(TipoEmpleado.encarregat, 999.99f,3);
+
+        assertEquals(1560, e.calculaSalarioBruto(TipoEmpleado.encarregat, 999.99f,3));
     }
 }
