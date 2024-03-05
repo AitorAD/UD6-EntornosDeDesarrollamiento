@@ -122,4 +122,44 @@ class EmpleadoBRTest {
 
         assertEquals(1560, e.calculaSalarioBruto(TipoEmpleado.encarregat, 999.99f,3));
     }
+
+    @Test
+    public void calculaSalarioBrutoEntradaEcarregat5000hSalida1500() {
+        EmpleadoBR e = new EmpleadoBR();
+        e.calculaSalarioBruto(TipoEmpleado.encarregat, 500f,0);
+
+        assertEquals(1500, e.calculaSalarioBruto(TipoEmpleado.encarregat, 500f,0));
+    }
+
+    @Test
+    public void calculaSalarioBrutoEntradaEcarregat08hSalida1660() {
+        EmpleadoBR e = new EmpleadoBR();
+        e.calculaSalarioBruto(TipoEmpleado.encarregat, 0f,8);
+
+        assertEquals(1660, e.calculaSalarioBruto(TipoEmpleado.encarregat, 0f,8));
+    }
+
+    @Test
+    public void calculaSalarioBrutoEntradaVenedorMenos18hSalidaMenos1() {
+        EmpleadoBR e = new EmpleadoBR();
+        e.calculaSalarioBruto(TipoEmpleado.encarregat, -1,8);
+
+        assertEquals(-1, e.calculaSalarioBruto(TipoEmpleado.encarregat, -1,8));
+    }
+
+    @Test
+    public void calculaSalarioBrutoEntradaVenedor1500Menos1hSalidaMenos1() {
+        EmpleadoBR e = new EmpleadoBR();
+        e.calculaSalarioBruto(TipoEmpleado.encarregat, 1500,-1);
+
+        assertEquals(-1, e.calculaSalarioBruto(TipoEmpleado.encarregat, 1500,-1));
+    }
+
+    @Test
+    public void calculaSalarioBrutoEntradaNulo1500Menos8hSalidaMenos1() {
+        EmpleadoBR e = new EmpleadoBR();
+        e.calculaSalarioBruto(null, 1500,8);
+
+        assertEquals(-1, e.calculaSalarioBruto(null, 1500,8));
+    }
 }
