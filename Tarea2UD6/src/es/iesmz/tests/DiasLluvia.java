@@ -55,4 +55,15 @@ public class DiasLluvia {
         }
         return totalDiasLlovidos;
     }
+
+    int primerDiaLluvia() {
+        int dia = 1;
+        for (int i = 0; i < calendario.length; i++) {
+            for (int j = 0; j < calendario[i].length; j++) {
+                if (calendario[i][j]) return dia;
+                dia++;
+            }
+        }
+        return 0;
+    }
 }
