@@ -16,4 +16,14 @@ public class DiasLluvia {
         }
         return false;
     }
+
+    int contarDiasLluviosos() {
+        int totalDiasLlovidos = 0;
+        for (int i = 0; i < calendario.length; i++) {
+            for (int j = 0; j < calendario[i].length; j++) {
+                if (calendario[i][j]) totalDiasLlovidos++;
+            }
+        }
+        return totalDiasLlovidos;
+    }
 }
