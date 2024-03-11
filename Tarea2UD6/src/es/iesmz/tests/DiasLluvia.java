@@ -4,14 +4,15 @@ public class DiasLluvia {
     boolean[][] calendario = new boolean[12][31];
 
     boolean registroDia(int dia, int mes, boolean lluvia) {
-        if (dia >= 1 && dia <= 31 && mes <= 1 && mes >= 12) {
-            calendario[mes][dia] = lluvia;
+        if (dia >= 1 && dia <= 31 && mes >= 1 && mes <= 12) {
+            calendario[mes-1][dia-1] = lluvia;
+            return true;
         }
         return false;
     }
 
     boolean consultarDia(int dia, int mes) {
-        if (calendario[mes][dia]) {
+        if (calendario[mes-1][dia-1]) {
             return true;
         }
         return false;
