@@ -24,13 +24,14 @@ public class Compte {
         return validacion;
     }
 
-    String generaIBAN(String entitat, String oficina, String dc, String compte) throws IvalidIbanException {
-        if (entitat.length() != 4 || oficina.length() != 4 || dc.length() != 2 || compte.length() != 10) {
-            throw new IvalidIbanException("");
+    String generaIBAN(String entitat, String oficina, String dc, String compte) {
+        if (entitat.matches("^[0-9]{4}") && oficina.matches("^[0-9]{4}") && dc.matches("^[0-9]{2}") && compte.matches("^[0-9]{10}")) {
+            String IBANsinDigitosDeControl = extension + "XX" + entitat + oficina + dc + compte;
+            String digitosDeControl = obtenerDigitosDeControl(IBANsinDigitosDeControl);
+            String IBAN = extension + digitosDeControl + entitat + oficina + dc + compte;
+            return IBAN;
         }
-        BigInteger nIBAN = new BigInteger(entitat + oficina + compte + "142800");
-        String digitosDeControl = obtenerDigitosDeControl(nIBAN.toString());
-        return extension + digitosDeControl + nIBAN;
+        return null;
     }
 
     private String obtenerDigitosDeControl(String iban) {
