@@ -64,4 +64,30 @@ class CompteTest {
         Compte c = new Compte("Aitor", "1234567890");
         assertEquals(null, c.generaIBAN("2085" ,"2066", "62", "3456AE9011"));
     }
+
+    //
+
+    @Test
+    public void compruebaGeneraIBAN_208_2066_62_3456789011_SalidaEsperada_null() {
+        Compte c = new Compte("Aitor", "1234567890");
+        assertEquals(null, c.generaIBAN("208" ,"2066", "62", "3456789011"));
+    }
+
+    @Test
+    public void compruebaGeneraIBAN_2080_20A6_62_3456789011_SalidaEsperada_null() {
+        Compte c = new Compte("Aitor", "1234567890");
+        assertEquals(null, c.generaIBAN("2080" ,"20A6", "62", "3456789011"));
+    }
+
+    @Test
+    public void compruebaGeneraIBAN_2080_2086_6_3456789011_SalidaEsperada_null() {
+        Compte c = new Compte("Aitor", "1234567890");
+        assertEquals(null, c.generaIBAN("2080" ,"2086", "6", "3456789011"));
+    }
+
+    @Test
+    public void compruebaGeneraIBAN_2080_2086_63_345678911_SalidaEsperada_null() {
+        Compte c = new Compte("Aitor", "1234567890");
+        assertEquals(null, c.generaIBAN("2080" ,"2086", "63", "345678911"));
+    }
 }
