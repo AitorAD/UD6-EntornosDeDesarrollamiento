@@ -15,8 +15,9 @@ public class Compte {
 
     boolean compruebaIBAN(String iban) {
         boolean validacion = false;
-        if (iban.length() == 34) {
-            if (obtenerDigitosDeControl(iban).equals(iban.substring(2,3))) {
+        if (iban.length() == 24) {
+            String digitosDeControl = iban.substring(2,4);
+            if (obtenerDigitosDeControl(iban).equals(digitosDeControl)) {
                 validacion = true;
             }
         }
@@ -33,11 +34,11 @@ public class Compte {
     }
 
     private String obtenerDigitosDeControl(String iban) {
-        BigInteger nIBAN = new BigInteger(iban.substring(4,33));
+        BigInteger nIBAN = new BigInteger(iban.substring(4,24) + "142800");
         BigInteger modulo = new BigInteger("97");
         nIBAN = nIBAN.mod(modulo);
         BigInteger resta = new BigInteger("98");
-        nIBAN = nIBAN.subtract(resta);
+        nIBAN = resta.subtract(nIBAN);
         return nIBAN.toString();
     }
 }
