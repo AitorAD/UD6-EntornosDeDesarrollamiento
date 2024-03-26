@@ -1,7 +1,7 @@
 package es.iesmz.test;
 
 public class Numeros {
-    public static int sonIguales(int a, int b, int c) {
+    public int sonIguales(int a, int b, int c) {
         int valor;
         if (a == b && a == c) {
             valor = 0;
