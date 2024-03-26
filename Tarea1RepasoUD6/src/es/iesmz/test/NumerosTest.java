@@ -22,4 +22,22 @@ class NumerosTest {
         Numeros n = new Numeros();
         assertEquals(1, n.sonIguales(14,55,14));
     }
+
+    @Test
+    public void pruebaSonIgualesA14_B14_C33() {
+        Numeros n = new Numeros();
+        assertEquals(1, n.sonIguales(14,14,33));
+    }
+
+    @Test
+    public void pruebaSonIgualesA32_B55_C55() {
+        Numeros n = new Numeros();
+        assertEquals(1, n.sonIguales(32,55,55));
+    }
+
+    @Test
+    public void pruebaSonIgualesA329_B329_C329() {
+        Numeros n = new Numeros();
+        assertEquals(0, n.sonIguales(329,329,329));
+    }
 }
