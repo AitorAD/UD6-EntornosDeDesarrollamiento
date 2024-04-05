@@ -19,4 +19,14 @@ class TimeTest {
     public void pruebaTimeDevuelve_1_10_0() {
         assertEquals(new Time(1,10,0), new Time(1,9,59).nextSecond());
     }
+
+    @Test
+    public void pruebaTimeDevuelve_18_0_0() {
+        assertEquals(new Time(18,0,0), new Time(17,59,59).nextSecond());
+    }
+
+    @Test
+    public void pruebaTimeDevuelve_0_0_0() {
+        assertEquals(new Time(0,0,0), new Time(23,59,59).nextSecond());
+    }
 }
