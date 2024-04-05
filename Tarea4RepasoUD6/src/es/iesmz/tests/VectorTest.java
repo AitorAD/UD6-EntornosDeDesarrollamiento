@@ -20,4 +20,20 @@ class VectorTest {
 
         assertArrayEquals(expected, Vector.reverso(v));
     }
+
+    @Test
+    public void pruebaVectorDevuelve_5() {
+        int[] v = {5};
+        int[] expected = {5};
+
+        assertArrayEquals(expected, Vector.reverso(v));
+    }
+
+    @Test
+    public void pruebaVectorDevuelve_20105() {
+        int[] v = {5,10,20};
+        int[] expected = {20,10,5};
+
+        assertArrayEquals(expected, Vector.reverso(v));
+    }
 }
