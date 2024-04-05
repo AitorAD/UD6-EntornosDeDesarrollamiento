@@ -1,5 +1,7 @@
 package es.iesmz.tests;
 
+import java.util.Objects;
+
 public class Time {
     private int hora;
     private int minuto;
@@ -42,5 +44,35 @@ public class Time {
         }
 
         return new Time(hora,minuto,segundo);
+    }
+
+    public int getHora() {
+        return hora;
+    }
+
+    public int getMinuto() {
+        return minuto;
+    }
+
+    public int getSegundo() {
+        return segundo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Time time = (Time) o;
+        return hora == time.hora && minuto == time.minuto && segundo == time.segundo;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(hora, minuto, segundo);
+    }
+
+    @Override
+    public String toString() {
+        return "h: " + hora + ", m: " + minuto + ", s: " + segundo;
     }
 }
