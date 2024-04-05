@@ -19,4 +19,14 @@ class Vocales2Test {
     public void pruebaVocales2devuelve_JvmlMglln() {
         assertEquals("Jv ml Mglln", Vocales2.sinvocales("Java mola MogollOn"));
     }
+
+    @Test
+    public void pruebaVocales2devuelve_4h0r4s0nnm3r0s() {
+        assertEquals("4h0r4 s0n nm3r0s", Vocales2.sinvocales("4h0r4 s0n num3r0s"));
+    }
+
+    @Test
+    public void pruebaVocales2devuelve_CdnSnVcls() {
+        assertEquals("Cdn Sn Vcls", Vocales2.sinvocales("Cadena Sin Vocales"));
+    }
 }
